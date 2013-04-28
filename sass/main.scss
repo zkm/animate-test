@@ -1,0 +1,14 @@
+@import "compass/reset";
+
+// Banana Jumproping
+$an_jumprope-sort-by : 'name';
+$an_jumprope-layout:horizontal;
+@import "an_jumprope/*.png";  
+
+#an_jumprope {
+	background: url('../img/an_jumprope.png') no-repeat;
+	display: block;
+	width: 510px;
+	height: 300px;
+	margin:0 auto;
+}
