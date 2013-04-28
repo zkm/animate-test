@@ -2,7 +2,7 @@
 function an_jumprope() {
     var frameWidth = 510;
     var frameHeight = 300;
-    var frames = 5;
+    var frames = 8;
     var frame = 0;
     var div = document.getElementById("an_jumprope");
     setInterval(function () {
