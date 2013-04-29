@@ -12,4 +12,15 @@ function an_jumprope() {
 }
 
 // firing off animation
-$("#an_jumprope").load(an_jumprope());
+//$("#an_jumprope").load(an_jumprope());
+
+$(function(){
+  $("#an_jumprope").jBlitter({
+    'resource':'./img/an_jumprope.png',
+    'speed':100,
+    'frameWidth':510,
+    'frameHeight':300,
+    'reverse':false,
+    'loop':true,
+    });
+});
