@@ -50,12 +50,13 @@ a img {
   border: none;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
 
 .an_jumprope-sprite {
-  background: url('/img/an_jumprope.png') no-repeat;
+  background-image: url('/img/an_jumprope.png');
+  background-repeat: no-repeat;
 }
 
 #an_jumprope {
