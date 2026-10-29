@@ -6,30 +6,31 @@ on:
   pull_request:
     branches: [ main, master, develop ]
 
+permissions:
+  contents: read
+
 jobs:
-  build:
+  syntax:
+    name: Syntax check (HTML, CSS, JS)
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
-
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
 
-    - name: Install dependencies
-      run: npm install
-      continue-on-error: true
+      # Only this repo's own files; vendored jQuery is left alone.
+      - name: JavaScript parses
+        run: for f in js/animate.js js/jquery.jblitter.js; do node --check "$f"; done
 
-    - name: Run linting
-      run: npm run lint
-      continue-on-error: true
+      # No style rules, so only CSS syntax errors fail the build.
+      - name: CSS parses
+        run: |
+          echo '{"rules":{}}' > "$RUNNER_TEMP/stylelint.json"
+          npx --yes stylelint@16 --config "$RUNNER_TEMP/stylelint.json" css/main.css
 
-    - name: Build assets
-      run: npm run build
-      continue-on-error: true
+      - name: HTML is well-formed
+        run: npx --yes htmlhint@1 index.html
