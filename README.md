@@ -1,6 +1,7 @@
 Jump Rope Animation
 ===================
 
+[![CI](https://github.com/zkm/animate-test/actions/workflows/ci.yml/badge.svg)](https://github.com/zkm/animate-test/actions/workflows/ci.yml)
 [![live demo](https://img.shields.io/website?url=https%3A%2F%2Fzkm.github.io%2Fanimate-test%2F&label=live%20demo)](https://zkm.github.io/animate-test/)
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
